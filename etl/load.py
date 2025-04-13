@@ -2,7 +2,6 @@ import pandas as pd
 
 from config.db_config import CONNECTION_PARAM
 from utils.db_utils import get_db_connection
-from utils.file_utils import get_absolute_path
 from utils.sql_utils import import_sql_query
 
 
@@ -25,7 +24,7 @@ def load_data(data: pd.DataFrame) -> None:
 def create_table(conn):
     cursor = conn.cursor()
 
-    QUERY_PATH = get_absolute_path("sql/create_users_table.sql")
+    QUERY_PATH = "sql/create_users_table.sql"
     create_users_table_query = import_sql_query(QUERY_PATH)
 
     cursor.execute(create_users_table_query)

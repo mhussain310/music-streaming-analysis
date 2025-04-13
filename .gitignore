@@ -1,2 +1,4 @@
 .venv
 music_streaming_analysis.egg-info
+__pycache__/
+*.py[cod]
