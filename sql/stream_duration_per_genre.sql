@@ -1,6 +1,6 @@
 SELECT
   top_genre,
-  AVG(minutes_streamed_per_day)
+  AVG(minutes_streamed_per_day) AS avg_mins_streamed_per_day
 FROM
   users
 GROUP BY
