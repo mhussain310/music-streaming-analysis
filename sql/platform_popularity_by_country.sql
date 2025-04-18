@@ -15,24 +15,15 @@ WITH
     GROUP BY
       1,
       2
-  ),
-  most_popular_platform_per_country AS (
-    SELECT
-      country,
-      streaming_platform,
-      user_count
-    FROM
-      platform_rankings_per_country
-    WHERE
-      platform_rank = 1
   )
 SELECT
+  country,
   streaming_platform,
-  COUNT(streaming_platform) AS num_countries_ranked_1st
+  user_count,
+  platform_rank,
+  100.0 * user_count / SUM(user_count) OVER (
+    PARTITION BY
+      country
+  ) AS user_count_pct
 FROM
-  most_popular_platform_per_country
-GROUP BY
-  1
-ORDER BY
-  2 desc,
-  1 ASC
+  platform_rankings_per_country

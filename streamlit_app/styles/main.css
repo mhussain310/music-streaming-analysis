@@ -1,0 +1,55 @@
+/* Global styles */
+.stApp {
+    background-color: #f5f5f5;
+}
+
+/* Expander styles */
+.st-emotion-cache-1h9usn1 {
+    background-color: #ffffff;
+    font-weight: bold;
+    border-radius: 0;
+}
+.st-emotion-cache-4rp1ik:hover {
+  color: #000000;
+}
+.st-emotion-cache-4rp1ik:hover svg {
+  fill: #000000;
+}
+.st-emotion-cache-1clstc5 {
+    padding-top: 1rem;
+    background-color: #f5f5f5;
+}
+
+/* Table Styles */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  text-align: left;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.styled-table th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+  padding: 12px;
+  border-bottom: 2px solid #ddd;
+}
+.styled-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.styled-table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+.styled-table tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* foot note */
+.foot-note {
+  font-size: 0.9rem;
+  color: gray;
+}

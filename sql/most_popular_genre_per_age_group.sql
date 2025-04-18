@@ -42,7 +42,8 @@ SELECT
   mag.age_group,
   top_genre,
   max_count,
-  total_user_per_age_group
+  total_user_per_age_group,
+  100.0 * max_count / total_user_per_age_group AS max_count_pct
 FROM
   max_count_per_age_group mag
   INNER JOIN total_user_per_age_group tag ON mag.age_group = tag.age_group
