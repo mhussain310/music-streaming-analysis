@@ -11,7 +11,6 @@ from streamlit_app.components.create_donut_chart import create_donut_chart
 from streamlit_app.components.create_scatter_plot import create_scatter_plot
 from streamlit_app.components.create_select_filter import create_select_filter
 from streamlit_app.components.create_static_table import create_static_table
-from streamlit_app.components.filter_df_with_select_box import filter_df_with_select_box
 
 from streamlit_app.components.platform_popularity_by_country_chart import (
     plot_platform_popularity_by_country_chart,
@@ -287,15 +286,18 @@ create_bar_chart(
 st.header("13. Which age groups are most associated with high repeat rate?")
 repeat_rate_per_age_group = execute_sql_query("sql/repeat_rate_per_age_group.sql", conn)
 sql_query_result_expander(repeat_rate_per_age_group)
-filtered_df_q13, selected_genre_q13 = filter_df_with_select_box(
-    repeat_rate_per_age_group,
-    column_filter="top_genre",
-    filter_label="Select a Genre",
-    keyname="select_box_query_13",
+config_q13 = {
+    "num_selectbox": 1,
+    "selectbox_filters": ["top_genre"],
+    "selectbox_keys": ["genre_select_q13"],
+    "selectbox_labels": ["Select a Genre"],
+}
+filtered_df_q13, selected_values_q13 = create_select_filter(
+    repeat_rate_per_age_group, config_q13
 )
 create_bar_chart(
     filtered_df_q13,
-    title=f"Average Repeat Rate per Age Group for {selected_genre_q13} Music",
+    title=f"Average Repeat Rate per Age Group for {selected_values_q13['genre_select_q13']} Music",
     x_axis="avg_repeat_rate_per_age_group",
     y_axis="age_group",
     x_label="Average Repeat Rate (%)",
