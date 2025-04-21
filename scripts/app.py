@@ -11,7 +11,6 @@ from streamlit_app.components.create_donut_chart import create_donut_chart
 from streamlit_app.components.create_scatter_plot import create_scatter_plot
 from streamlit_app.components.create_select_filter import create_select_filter
 from streamlit_app.components.create_static_table import create_static_table
-
 from streamlit_app.components.platform_popularity_by_country_chart import (
     plot_platform_popularity_by_country_chart,
 )
@@ -70,6 +69,8 @@ create_bar_chart(
     title=f"Platform Popularity for '{selected_values_q2['genre_select_q2']}' Genre",
     x_label="Percentage Users",
     custom_data_cols=["user_count"],
+    color_col="user_count_pct",
+    use_continuous_color=True,
 )
 
 # ----------------------------------------------------------------------------------
@@ -125,6 +126,8 @@ create_bar_chart(
     stream_duration_per_age_group,
     title="Stream Duration per Age Group",
     is_percentage=False,
+    color_col="avg_mins_streamed_per_day",
+    use_continuous_color=True,
 )
 
 # ----------------------------------------------------------------------------------
@@ -225,6 +228,8 @@ create_bar_chart(
         "user_count": "Number of Users",
     },
     custom_data_cols=["user_count", "top_genre"],
+    color_col="user_count_pct",
+    use_continuous_color=True,
 )
 
 # ----------------------------------------------------------------------------------
@@ -267,6 +272,8 @@ create_bar_chart(
     stream_duration_per_platform,
     title="Average Minutes Streamed Per Day by Platform",
     is_percentage=False,
+    color_col="avg_mins_streamed_per_day",
+    use_continuous_color=True,
 )
 
 # ----------------------------------------------------------------------------------
@@ -279,6 +286,8 @@ create_bar_chart(
     title="Average Repeat Rate per Genre",
     x_label="Average Repeat Rate (%)",
     y_label="Genre",
+    color_col="avg_repeat_rate",
+    use_continuous_color=True,
 )
 
 # ----------------------------------------------------------------------------------
@@ -302,6 +311,8 @@ create_bar_chart(
     y_axis="age_group",
     x_label="Average Repeat Rate (%)",
     y_label="Age Group",
+    color_col="avg_repeat_rate_per_age_group",
+    use_continuous_color=True,
 )
 
 # ----------------------------------------------------------------------------------
@@ -438,6 +449,8 @@ create_bar_chart(
     y_label="Percentage of Users",
     custom_data_cols=["most_played_artist", "user_count"],
     hover_labels={"most_played_artist": "Artist", "user_count": "Number of Users"},
+    color_col="user_count_pct",
+    use_continuous_color=True,
 )
 # ----------------------------------------------------------------------------------
 

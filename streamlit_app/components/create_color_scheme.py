@@ -11,7 +11,7 @@ def create_color_scheme(use_continuous_color, color_sequence):
         ]
     else:
         color_args["color_discrete_sequence"] = (
-            color_sequence or px.colors.qualitative.Set2
+            color_sequence or px.colors.qualitative.Pastel
         )
 
     return color_args
